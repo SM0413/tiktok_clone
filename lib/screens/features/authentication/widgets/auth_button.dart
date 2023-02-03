@@ -25,7 +25,7 @@ class AuthButton extends StatelessWidget {
   _pushScreen() {
     switch (movePage) {
       case "email":
-        const EmailScreen();
+        return const EmailScreen();
     }
   }
   // finish set Function
