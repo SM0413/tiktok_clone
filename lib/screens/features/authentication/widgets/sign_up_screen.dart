@@ -7,7 +7,6 @@ import 'login_screen.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
-
   void _onLoginTap(BuildContext context) {
     Navigator.of(context).push(
       MaterialPageRoute(

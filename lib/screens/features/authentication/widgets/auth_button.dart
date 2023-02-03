@@ -14,7 +14,6 @@ class AuthButton extends StatelessWidget {
     required this.icon,
     required this.movePage,
   });
-
   void _onTap(BuildContext context) {
     Navigator.of(context).push(MaterialPageRoute(
       builder: (context) => _pushScreen(),
