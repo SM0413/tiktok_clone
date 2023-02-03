@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tictok_clone/constants/sizes.dart';
-import 'package:tictok_clone/screens/features/authentication/widgets/email_screen.dart';
+import 'package:tictok_clone/screens/features/authentication/widgets/username_screen.dart';
 
 class AuthButton extends StatelessWidget {
   final String text;
@@ -25,7 +25,7 @@ class AuthButton extends StatelessWidget {
   _pushScreen() {
     switch (movePage) {
       case "email":
-        return const EmailScreen();
+        return const UserNameScreen();
     }
   }
   // finish set Function
