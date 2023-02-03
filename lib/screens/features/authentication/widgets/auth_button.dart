@@ -14,6 +14,8 @@ class AuthButton extends StatelessWidget {
     required this.icon,
     required this.movePage,
   });
+
+  // set Function
   void _onTap(BuildContext context) {
     Navigator.of(context).push(MaterialPageRoute(
       builder: (context) => _pushScreen(),
@@ -21,10 +23,12 @@ class AuthButton extends StatelessWidget {
   }
 
   _pushScreen() {
-    if (movePage == "email") {
-      return const EmailScreen();
+    switch (movePage) {
+      case "email":
+        const EmailScreen();
     }
   }
+  // finish set Function
 
   @override
   Widget build(BuildContext context) {
