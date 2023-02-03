@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tictok_clone/constants/sizes.dart';
-import 'package:tictok_clone/screens/features/authentication/widgets/username_screen.dart';
+import 'package:tictok_clone/screens/features/authentication/username_screen.dart';
 
 class AuthButton extends StatelessWidget {
   final String text;
@@ -46,13 +46,11 @@ class AuthButton extends StatelessWidget {
           child: Stack(
             alignment: Alignment.center,
             children: [
-              Expanded(
-                child: Text(
-                  text,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                      fontSize: Sizes.size16, fontWeight: FontWeight.w600),
-                ),
+              Text(
+                text,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                    fontSize: Sizes.size16, fontWeight: FontWeight.w600),
               ),
               Align(
                 alignment: Alignment.centerLeft,
