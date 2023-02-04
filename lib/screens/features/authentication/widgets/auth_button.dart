@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tictok_clone/constants/sizes.dart';
+import 'package:tictok_clone/screens/features/authentication/login_form_screen.dart';
 import 'package:tictok_clone/screens/features/authentication/username_screen.dart';
+
+enum MovePage { emailJoin, emailLogin, apple, facebook, google }
 
 class AuthButton extends StatelessWidget {
   final String text;
   final FaIcon icon;
-  final String movePage;
+  final MovePage movePage;
 
   const AuthButton({
     super.key,
@@ -24,8 +27,10 @@ class AuthButton extends StatelessWidget {
 
   _pushScreen() {
     switch (movePage) {
-      case "email":
+      case MovePage.emailJoin:
         return const UserNameScreen();
+      case MovePage.emailLogin:
+        return const LoginFormScreen();
     }
   }
   // finish set Function

@@ -44,22 +44,22 @@ class SignUpScreen extends StatelessWidget {
               ),
               Gaps.v40,
               AuthButton(
-                  movePage: "email",
+                  movePage: MovePage.emailJoin,
                   icon: FaIcon(FontAwesomeIcons.user),
                   text: "Use email & password"),
               Gaps.v16,
               AuthButton(
-                  movePage: "facebook",
+                  movePage: MovePage.facebook,
                   icon: FaIcon(FontAwesomeIcons.facebook),
                   text: "Continue with Facebook"),
               Gaps.v16,
               AuthButton(
-                  movePage: "apple",
+                  movePage: MovePage.apple,
                   icon: FaIcon(FontAwesomeIcons.apple),
                   text: "Continue with Apple"),
               Gaps.v16,
               AuthButton(
-                  movePage: "google",
+                  movePage: MovePage.google,
                   icon: FaIcon(FontAwesomeIcons.google),
                   text: "Continue with Google"),
             ],

@@ -97,7 +97,10 @@ class _BirthdayScreenState extends State<BirthdayScreen> {
               Gaps.v28,
               GestureDetector(
                 onTap: _onNextTap,
-                child: FormButton(disabled: initialDate.toString().isEmpty),
+                child: FormButton(
+                  disabled: initialDate.toString().isEmpty,
+                  buttonText: "Join",
+                ),
               )
             ],
           ),

@@ -82,6 +82,7 @@ class _EmailScreenState extends State<EmailScreen> {
               ),
               Gaps.v16,
               TextField(
+                autofocus: true,
                 keyboardType: TextInputType.emailAddress,
                 onEditingComplete: _onSubmit,
                 autocorrect: false,
@@ -104,9 +105,12 @@ class _EmailScreenState extends State<EmailScreen> {
               ),
               Gaps.v28,
               GestureDetector(
-                  onTap: _onSubmit,
-                  child: FormButton(
-                      disabled: _email.isEmpty || _isEmailValid() != null))
+                onTap: _onSubmit,
+                child: FormButton(
+                  disabled: _email.isEmpty || _isEmailValid() != null,
+                  buttonText: "Next",
+                ),
+              ),
             ],
           ),
         ),

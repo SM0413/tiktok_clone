@@ -88,6 +88,7 @@ class _UserNameScreenState extends State<UserNameScreen> {
               ),
               Gaps.v16,
               TextField(
+                autofocus: true,
                 onEditingComplete: _onSubmit,
                 controller: _usernameController,
                 decoration: InputDecoration(
@@ -108,7 +109,10 @@ class _UserNameScreenState extends State<UserNameScreen> {
               Gaps.v28,
               GestureDetector(
                 onTap: _onNextTap,
-                child: FormButton(disabled: _username.isEmpty),
+                child: FormButton(
+                  disabled: _username.isEmpty,
+                  buttonText: "Next",
+                ),
               )
             ],
           ),

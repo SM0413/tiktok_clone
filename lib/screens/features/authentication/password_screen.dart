@@ -94,6 +94,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
               ),
               Gaps.v16,
               TextField(
+                autofocus: true,
                 onEditingComplete: _onSubmit,
                 autocorrect: false,
                 obscureText: _isObscureText,
@@ -172,10 +173,13 @@ class _PasswordScreenState extends State<PasswordScreen> {
               ),
               Gaps.v28,
               GestureDetector(
-                  onTap: _onSubmit,
-                  child: FormButton(
-                      disabled: !_ispasswordLengthValid() ||
-                          !_isPasswordConditionValid()))
+                onTap: _onSubmit,
+                child: FormButton(
+                  disabled:
+                      !_ispasswordLengthValid() || !_isPasswordConditionValid(),
+                  buttonText: "Next",
+                ),
+              )
             ],
           ),
         ),
