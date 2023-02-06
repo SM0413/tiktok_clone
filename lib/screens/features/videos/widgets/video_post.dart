@@ -92,9 +92,11 @@ class _VideoPostState extends State<VideoPost>
       _onTogglePause();
     }
     await showModalBottomSheet(
+      //Start
       context: context,
       barrierColor: Colors.transparent,
       builder: (context) => const VideoComments(),
+      //End
     );
     _onTogglePause();
   }

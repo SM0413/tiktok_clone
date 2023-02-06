@@ -17,10 +17,12 @@ class _VideoCommentsState extends State<VideoComments> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      //Start
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(Sizes.size14),
       ),
+      //End
       child: Scaffold(
         backgroundColor: Colors.grey.shade50,
         appBar: AppBar(
