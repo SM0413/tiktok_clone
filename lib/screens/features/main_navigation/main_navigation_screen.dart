@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tictok_clone/constants/gaps.dart';
 import 'package:tictok_clone/constants/sizes.dart';
-import 'package:tictok_clone/screens/features/authentication/sign_up_screen.dart';
 import 'package:tictok_clone/screens/features/main_navigation/widgets/nav_tap.dart';
 import 'package:tictok_clone/screens/features/main_navigation/widgets/post_video_button.dart';
+import 'package:tictok_clone/screens/features/videos/video_timeline_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
@@ -38,11 +38,12 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: _selectedIndex == 0 ? Colors.black : Colors.white,
       body: Stack(
         children: [
           Offstage(
             offstage: _selectedIndex != 0,
-            child: const SignUpScreen(),
+            child: const VideoTimelineScreen(),
           ),
         ],
       ),
