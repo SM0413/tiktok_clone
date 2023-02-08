@@ -98,7 +98,7 @@ class _VideoPostState extends State<VideoPost>
       //Start
       context: context,
       isScrollControlled: true,
-      barrierColor: Colors.transparent,
+      backgroundColor: Colors.transparent,
       builder: (context) => const VideoComments(),
       //End
     );
