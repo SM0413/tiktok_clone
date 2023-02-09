@@ -11,6 +11,20 @@ class ChatDetailScreen extends StatefulWidget {
 }
 
 class _ChatDetailScreenState extends State<ChatDetailScreen> {
+  String _text = "";
+
+  List<String> myTextList = [];
+
+  final TextEditingController _textEditingController = TextEditingController();
+
+  void _onEditingComplete() {
+    if (_text.isNotEmpty) {
+      myTextList.add(_text);
+      FocusScope.of(context).unfocus();
+      _textEditingController.clear();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,12 +33,28 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
           contentPadding: EdgeInsets.zero,
           horizontalTitleGap: Sizes.size8,
           leading: Stack(
-            children: const [
-              CircleAvatar(
+            children: [
+              const CircleAvatar(
                 radius: Sizes.size24,
                 foregroundImage: NetworkImage(
                     "https://wallpapers.com/images/featured/4co57dtwk64fb7lv.jpg"),
                 child: Text("Nico"),
+              ),
+              Positioned(
+                width: 20,
+                right: 0,
+                bottom: 0,
+                height: 20,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(
+                      color: Colors.white,
+                      width: Sizes.size4,
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
@@ -85,19 +115,25 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                         ),
                       ),
                     ),
-                    child: const Text(
-                      "this is a message",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: Sizes.size16,
-                      ),
+                    child: Column(
+                      children: [
+                        if (_text.isNotEmpty)
+                          for (var text in myTextList)
+                            Text(
+                              text,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: Sizes.size16,
+                              ),
+                            ),
+                      ],
                     ),
                   ),
                 ],
               );
             },
             separatorBuilder: (context, index) => Gaps.v10,
-            itemCount: 10,
+            itemCount: myTextList.length,
           ),
           Positioned(
             bottom: 0,
@@ -106,10 +142,19 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
               color: Colors.grey.shade50,
               child: Row(
                 children: [
-                  const Expanded(child: TextField()),
+                  Expanded(
+                    child: TextField(
+                      controller: _textEditingController,
+                      onChanged: (value) => _text = value,
+                      onEditingComplete: _onEditingComplete,
+                      onSubmitted: (value) => _onEditingComplete,
+                    ),
+                  ),
                   Gaps.h20,
                   Container(
-                    child: const FaIcon(FontAwesomeIcons.paperPlane),
+                    child: const FaIcon(
+                      FontAwesomeIcons.paperPlane,
+                    ),
                   ),
                 ],
               ),
