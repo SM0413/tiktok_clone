@@ -96,10 +96,12 @@ class _VideoPostState extends State<VideoPost>
       _isPasued = !_isPasued;
     });
 
+    //start
     if (kIsWeb && !_isPasued) {
       _videoPlayerController.setVolume(100);
     }
   }
+  //end
 
   void _onCommentsTap(BuildContext context) async {
     if (_videoPlayerController.value.isPlaying) {
