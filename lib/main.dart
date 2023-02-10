@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:tictok_clone/constants/sizes.dart';
-import 'package:tictok_clone/screens/features/authentication/sign_up_screen.dart';
+import 'package:tictok_clone/screens/features/main_navigation/main_navigation_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await SystemChrome.setPreferredOrientations(
+    [
+      //휴대폰 회전 가능한지 여부
+      DeviceOrientation.portraitUp,
+    ],
+  );
+
+  SystemChrome.setSystemUIOverlayStyle(
+    // 배터리, 시간 컬러 설정
+    SystemUiOverlayStyle.dark,
+  );
+
   runApp(const TikTokAPP());
 }
 
@@ -32,7 +47,7 @@ class TikTokAPP extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
           )),
-      home: const SignUpScreen(),
+      home: const MainNavigationScreen(),
     );
   }
 }

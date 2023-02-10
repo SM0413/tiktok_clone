@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tictok_clone/constants/gaps.dart';
@@ -41,11 +42,14 @@ class _VideoPostState extends State<VideoPost>
 
   void _initVideoPlayer() async {
     await _videoPlayerController.initialize();
-    setState(() {});
     _videoPlayerController.setLooping(true);
     _videoPlayerController.addListener(
       _onVideoChange,
     );
+    if (kIsWeb) {
+      _videoPlayerController.setVolume(0);
+    }
+    setState(() {});
   }
 
   @override
@@ -91,6 +95,10 @@ class _VideoPostState extends State<VideoPost>
     setState(() {
       _isPasued = !_isPasued;
     });
+
+    if (kIsWeb && !_isPasued) {
+      _videoPlayerController.setVolume(100);
+    }
   }
 
   void _onCommentsTap(BuildContext context) async {
