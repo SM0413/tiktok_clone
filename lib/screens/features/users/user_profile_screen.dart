@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tictok_clone/constants/gaps.dart';
 import 'package:tictok_clone/constants/sizes.dart';
 import 'package:tictok_clone/function/avatarURL.dart';
+import 'package:tictok_clone/screens/features/settings/settings_screen.dart';
 import 'package:tictok_clone/screens/features/users/widgets/persistent_tab_bar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -21,6 +22,14 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     } else {
       throw 'Could not launch $uri';
     }
+  }
+
+  void _onGearPresed() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const SettingsScreen(),
+      ),
+    );
   }
 
   @override
@@ -65,7 +74,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 title: const Text("Nico"),
                 actions: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: _onGearPresed,
                     icon: const FaIcon(
                       FontAwesomeIcons.gear,
                       size: Sizes.size20,
