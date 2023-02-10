@@ -7,6 +7,8 @@ import 'package:tictok_clone/screens/features/videos/widgets/video_comments.dart
 import 'package:video_player/video_player.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
+import '../../../../function/avatarURL.dart';
+
 class VideoPost extends StatefulWidget {
   final Function onVideoFinished;
   final int index;
@@ -67,6 +69,7 @@ class _VideoPostState extends State<VideoPost>
   }
 
   void _onVisibilityChanged(VisibilityInfo info) {
+    if (!mounted) return;
     if (info.visibleFraction == 1 &&
         !_isPasued &&
         !_videoPlayerController.value.isPlaying) {
@@ -178,14 +181,14 @@ class _VideoPostState extends State<VideoPost>
             right: 10,
             child: Column(
               children: [
-                const CircleAvatar(
+                CircleAvatar(
                   radius: 25,
                   backgroundColor: Colors.black,
                   foregroundColor: Colors.white,
                   foregroundImage: NetworkImage(
-                    "https://wallpapers.com/images/featured/4co57dtwk64fb7lv.jpg",
+                    avatarURL(),
                   ),
-                  child: Text("Nico"),
+                  child: const Text("Nico"),
                 ),
                 Gaps.v24,
                 const VideoButton(

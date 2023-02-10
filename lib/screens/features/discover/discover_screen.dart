@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tictok_clone/constants/gaps.dart';
 import 'package:tictok_clone/constants/sizes.dart';
+import 'package:tictok_clone/function/avatarURL.dart';
 
 final tabs = [
   "Top",
@@ -103,8 +104,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                         child: FadeInImage.assetNetwork(
                             fit: BoxFit.cover,
                             placeholder: "assets/images/placeholder.png",
-                            image:
-                                "https://images.unsplash.com/photo-1675522034383-a3d953103476?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"),
+                            image: avatarURL()),
                       ),
                     ),
                     Gaps.v10,
@@ -125,10 +125,9 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                       ),
                       child: Row(
                         children: [
-                          const CircleAvatar(
+                          CircleAvatar(
                             radius: 12,
-                            backgroundImage: NetworkImage(
-                                "https://plus.unsplash.com/premium_photo-1661964375685-566b70a25e6d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"),
+                            backgroundImage: NetworkImage(avatarURL()),
                           ),
                           Gaps.h4,
                           const Expanded(

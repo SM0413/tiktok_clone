@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tictok_clone/constants/gaps.dart';
 import 'package:tictok_clone/constants/sizes.dart';
+import 'package:tictok_clone/function/avatarURL.dart';
 
 class ChatDetailScreen extends StatefulWidget {
   const ChatDetailScreen({super.key});
@@ -41,11 +42,10 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
             horizontalTitleGap: Sizes.size8,
             leading: Stack(
               children: [
-                const CircleAvatar(
+                CircleAvatar(
                   radius: Sizes.size24,
-                  foregroundImage: NetworkImage(
-                      "https://wallpapers.com/images/featured/4co57dtwk64fb7lv.jpg"),
-                  child: Text("Nico"),
+                  foregroundImage: NetworkImage(avatarURL()),
+                  child: const Text("Nico"),
                 ),
                 Positioned(
                   width: 20,

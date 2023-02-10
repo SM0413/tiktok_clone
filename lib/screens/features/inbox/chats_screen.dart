@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tictok_clone/constants/sizes.dart';
+import 'package:tictok_clone/function/avatarURL.dart';
 import 'package:tictok_clone/screens/features/inbox/chat_detail_screen.dart';
 
 class CahtsScreen extends StatefulWidget {
@@ -34,11 +35,10 @@ class _CahtsScreenState extends State<CahtsScreen> {
       onTap: _onChatTap,
       onLongPress: () => _deleteItem(index),
       key: UniqueKey(),
-      leading: const CircleAvatar(
+      leading: CircleAvatar(
         radius: 30,
-        foregroundImage: NetworkImage(
-            "https://cdn.pixabay.com/photo/2016/10/11/14/30/love-1731755_1280.jpg"),
-        child: Text("Nico"),
+        foregroundImage: NetworkImage(avatarURL()),
+        child: const Text("Nico"),
       ),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
