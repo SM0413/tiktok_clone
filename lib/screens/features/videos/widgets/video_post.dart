@@ -23,6 +23,7 @@ class VideoPost extends StatefulWidget {
 
 class _VideoPostState extends State<VideoPost>
     with SingleTickerProviderStateMixin {
+  late double volum = 100;
   final VideoPlayerController _videoPlayerController =
       VideoPlayerController.asset("assets/videos/video.MOV");
 
@@ -108,14 +109,19 @@ class _VideoPostState extends State<VideoPost>
       _onTogglePause();
     }
     await showModalBottomSheet(
-      //Start
+      // ** Start **
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
       builder: (context) => const VideoComments(),
-      //End
     );
     _onTogglePause();
+  }
+
+  void _onTapUp() {
+    _videoPlayerController.setVolume(volum - 10);
+    print(volum);
+    setState(() {});
   }
 
   @override
@@ -134,6 +140,7 @@ class _VideoPostState extends State<VideoPost>
           ),
           Positioned.fill(
             child: GestureDetector(
+              onLongPress: _onTapUp,
               onTap: _onTogglePause,
             ),
           ),
