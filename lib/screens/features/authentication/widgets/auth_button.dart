@@ -20,17 +20,17 @@ class AuthButton extends StatelessWidget {
 
   // set Function
   void _onTap(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => _pushScreen(),
-    ));
+    Navigator.of(context).pushNamed(
+      _pushScreen(),
+    );
   }
 
   _pushScreen() {
     switch (movePage) {
       case MovePage.emailJoin:
-        return const UserNameScreen();
+        return UserNameScreen.username;
       case MovePage.emailLogin:
-        return const LoginFormScreen();
+        return LoginFormScreen.routeName;
     }
   }
   // finish set Function

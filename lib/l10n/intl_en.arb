@@ -1,0 +1,14 @@
+{
+  "signUpTitle": "Sign up for {naemOfTheApp}",
+  "@signUpTitle": {
+    "description": "The title people see shen they open the app for the first time.",
+    "placeholders": {
+      "naemOfTheApp": {
+        "type": "String",
+        "example": "TikTok"
+      }
+    }
+  },
+  "createProrile": "Create a profile, follow other accounts, make your own videos, and more.",
+  "EmailPasswordButton": "Use email & password"
+}
