@@ -12,6 +12,7 @@ class VideoRecordingScreen extends StatefulWidget {
 }
 
 class _VideoRecordingScreenState extends State<VideoRecordingScreen> {
+  //start
   bool _hasPermission = false;
 
   late final CameraController _cameraController;
@@ -47,6 +48,8 @@ class _VideoRecordingScreenState extends State<VideoRecordingScreen> {
     super.initState();
     initPermissions();
   }
+
+  //end
 
   @override
   Widget build(BuildContext context) {
