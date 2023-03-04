@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:tictok_clone/constants/sizes.dart';
 import 'package:tictok_clone/screens/features/authentication/login_form_screen.dart';
 import 'package:tictok_clone/screens/features/authentication/username_screen.dart';
@@ -20,9 +21,7 @@ class AuthButton extends StatelessWidget {
 
   // set Function
   void _onTap(BuildContext context) {
-    Navigator.of(context).pushNamed(
-      _pushScreen(),
-    );
+    context.push(_pushScreen());
   }
 
   _pushScreen() {

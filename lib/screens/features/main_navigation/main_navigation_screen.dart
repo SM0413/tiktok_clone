@@ -7,6 +7,7 @@ import 'package:tictok_clone/screens/features/inbox/inbox_screen.dart';
 import 'package:tictok_clone/screens/features/main_navigation/widgets/nav_tap.dart';
 import 'package:tictok_clone/screens/features/main_navigation/widgets/post_video_button.dart';
 import 'package:tictok_clone/screens/features/users/user_profile_screen.dart';
+import 'package:tictok_clone/screens/features/videos/video_recording_screen.dart';
 import 'package:tictok_clone/screens/features/videos/video_timeline_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
@@ -28,11 +29,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   void _onPostVideoButtonTap() {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => Scaffold(
-          appBar: AppBar(
-            title: const Text("Record video"),
-          ),
-        ),
+        builder: (context) => const VideoRecordingScreen(),
         fullscreenDialog: true,
       ),
     );
@@ -59,7 +56,9 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
           ),
           Offstage(
             offstage: _selectedIndex != 4,
-            child: const UserProfileScreen(),
+            child: const UserProfileScreen(
+              username: "Nico",
+            ),
           ),
         ],
       ),

@@ -4,11 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tictok_clone/constants/sizes.dart';
 import 'package:tictok_clone/generated/l10n.dart';
-import 'package:tictok_clone/screens/features/authentication/email_screen.dart';
-import 'package:tictok_clone/screens/features/authentication/login_form_screen.dart';
-import 'package:tictok_clone/screens/features/authentication/login_screen.dart';
-import 'package:tictok_clone/screens/features/authentication/sign_up_screen.dart';
-import 'package:tictok_clone/screens/features/authentication/username_screen.dart';
+import 'package:tictok_clone/screens/features/videos/video_recording_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,6 +31,7 @@ class TikTokAPP extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // routerConfig: router,
       debugShowCheckedModeBanner: false,
       title: 'TikTokClone',
       localizationsDelegates: const [
@@ -83,14 +80,7 @@ class TikTokAPP extends StatelessWidget {
           ThemeData(brightness: Brightness.dark).textTheme,
         ),
       ),
-      initialRoute: SignUpScreen.routeName,
-      routes: {
-        SignUpScreen.routeName: (context) => const SignUpScreen(),
-        UserNameScreen.username: (context) => const UserNameScreen(),
-        LoginScreen.login: (context) => const LoginScreen(),
-        LoginFormScreen.routeName: (context) => const LoginFormScreen(),
-        EmailScreen.routeName: (context) => const EmailScreen()
-      },
+      home: const VideoRecordingScreen(),
     );
   }
 }

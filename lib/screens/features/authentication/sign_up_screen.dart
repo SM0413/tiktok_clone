@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:tictok_clone/constants/gaps.dart';
 import 'package:tictok_clone/constants/sizes.dart';
 import 'package:tictok_clone/generated/l10n.dart';
@@ -38,7 +39,7 @@ class SignUpScreen extends StatelessWidget {
             );
           }),
     ); */
-    Navigator.of(context).pushNamed(LoginScreen.login);
+    context.push(LoginScreen.login);
   }
 
   @override

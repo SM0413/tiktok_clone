@@ -39,16 +39,12 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
   }
 
   void _onEditingComplete() {
-    if (_email != "") {
-      if (_password != "") {
-        Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(
-            builder: (context) => const InterestsScreen(),
-          ),
-          (route) => false,
-        );
-      } else {}
-    }
+    Navigator.of(context).pushAndRemoveUntil(
+      MaterialPageRoute(
+        builder: (context) => const InterestsScreen(),
+      ),
+      (route) => false,
+    );
   }
 
   @override

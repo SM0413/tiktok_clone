@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:tictok_clone/constants/gaps.dart';
 import 'package:tictok_clone/constants/sizes.dart';
 import 'package:tictok_clone/screens/features/authentication/widgets/auth_button.dart';
@@ -8,8 +9,8 @@ class LoginScreen extends StatelessWidget {
   static String login = "/login";
   const LoginScreen({super.key});
 
-  void onSignUpTap(BuildContext context) {
-    Navigator.of(context).pop();
+  void _onSignUpTap(BuildContext context) {
+    context.pop();
   }
 
   @override
@@ -76,7 +77,7 @@ class LoginScreen extends StatelessWidget {
               const Text("Don't have an account?"),
               Gaps.h5,
               GestureDetector(
-                onTap: () => onSignUpTap(context),
+                onTap: () => _onSignUpTap(context),
                 child: Text(
                   'Sign up',
                   style: TextStyle(
