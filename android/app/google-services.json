@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "564608705418",
+    "project_id": "tiktok-ew-qwe",
+    "storage_bucket": "tiktok-ew-qwe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:564608705418:android:c954c8cb7d654f1d8d1e73",
+        "android_client_info": {
+          "package_name": "com.example.tictok_clone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "564608705418-fjil1lcdmbri8qr6u7goolq99f7ml2c1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7XhxLrINqt4CZtaVsAN7NUaZ_tWFStQU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "564608705418-fjil1lcdmbri8qr6u7goolq99f7ml2c1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "564608705418-tkj31jnr5vveo72jece9eqoaser8nqq1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.practice.tiktokclone"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

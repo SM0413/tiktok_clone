@@ -8,7 +8,8 @@ import 'package:tictok_clone/screens/features/authentication/login_screen.dart';
 import 'package:tictok_clone/screens/features/authentication/widgets/auth_button.dart';
 
 class SignUpScreen extends StatelessWidget {
-  static String routeName = "/";
+  static String routeURL = "/";
+  static String routeName = "signUp";
   const SignUpScreen({super.key});
   void _onLoginTap(BuildContext context) async {
     /* await Navigator.of(context).push(
@@ -39,7 +40,7 @@ class SignUpScreen extends StatelessWidget {
             );
           }),
     ); */
-    context.push(LoginScreen.login);
+    context.pushNamed(LoginScreen.routeName);
   }
 
   @override

@@ -52,6 +52,14 @@
 	<string>your usage description here</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>your usage description here</string>
+
+	<key>NSAppleMusicUsageDescription</key>
+    <string>Music!</string>
+    <key>kTCCServiceMediaLibrary</key>
+    <string>media</string>
+
+	<key>NSPhotoLibraryUsageDescription</key>
+    <string>photos</string>
 	<!-- end -->
 </dict>
 </plist>
