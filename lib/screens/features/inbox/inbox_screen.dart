@@ -9,15 +9,13 @@ class InboxScreen extends StatelessWidget {
   const InboxScreen({super.key});
 
   void _onDmPressed(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => const CahtsScreen(),
-      ),
-    );
+    context.pushNamed(CahtsScreen.routeName);
   }
 
   void _onActivityTap(BuildContext context) {
-    context.pushNamed(ActivityScreen.routeName);
+    context.pushNamed(
+      ActivityScreen.routeName,
+    );
   }
 
   @override

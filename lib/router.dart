@@ -1,9 +1,13 @@
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tictok_clone/common/widgets/main_navigation/main_navigation_screen.dart';
 import 'package:tictok_clone/screens/features/authentication/login_screen.dart';
 import 'package:tictok_clone/screens/features/authentication/sign_up_screen.dart';
 import 'package:tictok_clone/screens/features/inbox/activity_screen.dart';
+import 'package:tictok_clone/screens/features/inbox/chat_detail_screen.dart';
+import 'package:tictok_clone/screens/features/inbox/chats_screen.dart';
 import 'package:tictok_clone/screens/features/onboarding/interests_screen.dart';
+import 'package:tictok_clone/screens/features/videos/video_recording_screen.dart';
 
 final router = GoRouter(
   initialLocation: "/inbox",
@@ -36,6 +40,41 @@ final router = GoRouter(
       name: ActivityScreen.routeName,
       path: ActivityScreen.routeURL,
       builder: (context, state) => const ActivityScreen(),
+    ),
+    GoRoute(
+      name: CahtsScreen.routeName,
+      path: CahtsScreen.routeURL,
+      builder: (context, state) => const CahtsScreen(),
+      routes: [
+        GoRoute(
+          name: ChatDetailScreen.routeName,
+          path: ChatDetailScreen.routeURL,
+          builder: (context, state) {
+            final chatId = state.params["chatId"]!;
+            return ChatDetailScreen(
+              chatId: chatId,
+            );
+          },
+        ),
+      ],
+    ),
+    GoRoute(
+      name: VideoRecordingScreen.routeName,
+      path: VideoRecordingScreen.routeURL,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        transitionDuration: const Duration(
+          milliseconds: 150,
+        ),
+        child: const VideoRecordingScreen(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          final position = Tween(begin: const Offset(0, 1), end: Offset.zero)
+              .animate(animation);
+          return SlideTransition(
+            position: position,
+            child: child,
+          );
+        },
+      ),
     ),
   ],
 );
