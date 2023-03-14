@@ -121,13 +121,12 @@ class _VideoPostState extends State<VideoPost>
 
   void _onTapUp() {
     _videoPlayerController.setVolume(volum - 10);
-    print(volum);
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    VideoConfig.of(context).autoMute;
+    VideoConfigData.of(context).autoMute;
     return VisibilityDetector(
       key: Key("${widget.index}"),
       onVisibilityChanged: _onVisibilityChanged,
@@ -175,12 +174,12 @@ class _VideoPostState extends State<VideoPost>
             top: Sizes.size40,
             child: IconButton(
               icon: FaIcon(
-                VideoConfig.of(context).autoMute
+                VideoConfigData.of(context).autoMute
                     ? FontAwesomeIcons.volumeXmark
                     : FontAwesomeIcons.volumeHigh,
                 color: Colors.white,
               ),
-              onPressed: () {},
+              onPressed: VideoConfigData.of(context).toggleMuted,
             ),
           ),
           Positioned(
