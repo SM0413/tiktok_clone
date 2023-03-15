@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:tictok_clone/common/widgets/video_configuration/video_config.dart';
+import 'package:tictok_clone/screens/features/videos/view_models/playback_config_vm.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -30,12 +30,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
       body: ListView(
         children: [
           SwitchListTile.adaptive(
-            title: const Text("AutoMute"),
-            value: context.watch<VideoConfig>().isMuted,
-            onChanged: (value) {
-              context.read<VideoConfig>().toggleIsmuted();
-            },
+            title: const Text("AutoMuted"),
+            value: context.watch<PlaybackConfigViewModel>().muted,
+            onChanged: (value) =>
+                context.read<PlaybackConfigViewModel>().setMuted(value),
             subtitle: const Text("Video will be Muted by default"),
+          ),
+          SwitchListTile.adaptive(
+            title: const Text("AutoPlay"),
+            value: context.watch<PlaybackConfigViewModel>().autoplay,
+            onChanged: (value) =>
+                context.read<PlaybackConfigViewModel>().setAutoplay(value),
+            subtitle: const Text("Video will be Autoplay by default"),
           ),
           SwitchListTile.adaptive(
             title: const Text("Enable notifications"),

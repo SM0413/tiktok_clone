@@ -8,8 +8,8 @@ import 'package:tictok_clone/screens/features/inbox/inbox_screen.dart';
 import 'package:tictok_clone/common/widgets/main_navigation/widgets/nav_tap.dart';
 import 'package:tictok_clone/common/widgets/main_navigation/widgets/post_video_button.dart';
 import 'package:tictok_clone/screens/features/users/user_profile_screen.dart';
-import 'package:tictok_clone/screens/features/videos/video_recording_screen.dart';
-import 'package:tictok_clone/screens/features/videos/video_timeline_screen.dart';
+import 'package:tictok_clone/screens/features/videos/views/video_recording_screen.dart';
+import 'package:tictok_clone/screens/features/videos/views/video_timeline_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   static const String routeName = "mainNavigation";
