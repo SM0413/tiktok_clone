@@ -1,3 +1,3 @@
 String avatarURL() {
-  return "https://images.unsplash.com/photo-1675522034383-a3d953103476?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80";
+  return "https://firebasestorage.googleapis.com/v0/b/tiktok-ew-qwe.appspot.com/o/avatars%2FxR2iCqLJ80gVVd2TaQkdT3q7AV83?alt=media&token=547a95db-fef3-4f89-a6b0-f28b58294f43";
 }
