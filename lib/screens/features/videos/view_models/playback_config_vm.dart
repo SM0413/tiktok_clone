@@ -34,5 +34,5 @@ class PlaybackConfigViewModel extends Notifier<PlayBackConfigModel> {
 
 final playbackConfigProvider =
     NotifierProvider<PlaybackConfigViewModel, PlayBackConfigModel>(
-  () => throw UnimplementedError(),
+  () => throw UnimplementedError("playbackConfigProvider Error"),
 );

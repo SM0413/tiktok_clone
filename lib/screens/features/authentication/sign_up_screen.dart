@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tictok_clone/constants/gaps.dart';
@@ -7,7 +8,7 @@ import 'package:tictok_clone/generated/l10n.dart';
 import 'package:tictok_clone/screens/features/authentication/login_screen.dart';
 import 'package:tictok_clone/screens/features/authentication/widgets/auth_button.dart';
 
-class SignUpScreen extends StatelessWidget {
+class SignUpScreen extends ConsumerWidget {
   static String routeURL = "/";
   static String routeName = "signUp";
   const SignUpScreen({super.key});
@@ -44,7 +45,7 @@ class SignUpScreen extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     Localizations.localeOf(context);
     return OrientationBuilder(
       builder: (context, orientation) {
@@ -79,21 +80,11 @@ class SignUpScreen extends StatelessWidget {
                       icon: const FaIcon(FontAwesomeIcons.user),
                       text: S.of(context).EmailPasswordButton,
                     ),
-                    Gaps.v16,
                     const AuthButton(
-                        movePage: MovePage.facebook,
-                        icon: FaIcon(FontAwesomeIcons.facebook),
-                        text: "Continue with Facebook"),
-                    Gaps.v16,
-                    const AuthButton(
-                        movePage: MovePage.apple,
-                        icon: FaIcon(FontAwesomeIcons.apple),
-                        text: "Continue with Apple"),
-                    Gaps.v16,
-                    const AuthButton(
-                        movePage: MovePage.google,
-                        icon: FaIcon(FontAwesomeIcons.google),
-                        text: "Continue with Google"),
+                      movePage: MovePage.github,
+                      icon: FaIcon(FontAwesomeIcons.github),
+                      text: "SignIn with GitHub",
+                    ),
                   ],
                   if (orientation == Orientation.landscape) ...[
                     ...[
@@ -108,29 +99,15 @@ class SignUpScreen extends StatelessWidget {
                           Gaps.h16,
                           Expanded(
                             child: AuthButton(
-                                movePage: MovePage.facebook,
-                                icon: FaIcon(FontAwesomeIcons.facebook),
-                                text: "Continue with Facebook"),
+                                movePage: MovePage.github,
+                                icon: FaIcon(FontAwesomeIcons.github),
+                                text: "Use GitHup"),
                           ),
                         ],
                       ),
                       Gaps.v4,
                       Row(
-                        children: const [
-                          Expanded(
-                            child: AuthButton(
-                                movePage: MovePage.apple,
-                                icon: FaIcon(FontAwesomeIcons.apple),
-                                text: "Continue with Apple"),
-                          ),
-                          Gaps.h16,
-                          Expanded(
-                            child: AuthButton(
-                                movePage: MovePage.google,
-                                icon: FaIcon(FontAwesomeIcons.google),
-                                text: "Continue with Google"),
-                          ),
-                        ],
+                        children: const [],
                       ),
                     ],
                   ],

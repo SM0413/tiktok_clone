@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tictok_clone/constants/gaps.dart';
 import 'package:tictok_clone/constants/sizes.dart';
+import 'package:tictok_clone/screens/features/authentication/view_models/login_vm.dart';
 import 'package:tictok_clone/screens/features/authentication/widgets/form_button.dart';
 
-import '../onboarding/interests_screen.dart';
-
-class LoginFormScreen extends StatefulWidget {
+class LoginFormScreen extends ConsumerStatefulWidget {
   static String routeName = "/loginForm";
   const LoginFormScreen({super.key});
 
   @override
-  State<LoginFormScreen> createState() => _LoginFormScreenState();
+  ConsumerState<LoginFormScreen> createState() => _LoginFormScreenState();
 }
 
-class _LoginFormScreenState extends State<LoginFormScreen> {
+class _LoginFormScreenState extends ConsumerState<LoginFormScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String _email = "";
   bool isThereEmail = false;
@@ -25,7 +24,12 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
     if (_formKey.currentState != null) {
       if (_formKey.currentState!.validate()) {
         _formKey.currentState!.save();
-        context.goNamed(InterestsScreen.routeName);
+        ref.read(loginProvider.notifier).login(
+              formData["email"]!,
+              formData["password"]!,
+              context,
+            );
+        // context.goNamed(InterestsScreen.routeName);
       }
     }
   }
@@ -35,12 +39,17 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
   }
 
   void _onEditingComplete() {
-    Navigator.of(context).pushAndRemoveUntil(
-      MaterialPageRoute(
-        builder: (context) => const InterestsScreen(),
-      ),
-      (route) => false,
-    );
+    if (_formKey.currentState != null) {
+      if (_formKey.currentState!.validate()) {
+        _formKey.currentState!.save();
+        ref.read(loginProvider.notifier).login(
+              formData["email"]!,
+              formData["password"]!,
+              context,
+            );
+        // context.goNamed(InterestsScreen.routeName);
+      }
+    }
   }
 
   @override
@@ -105,9 +114,11 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
                 Gaps.v28,
                 GestureDetector(
                   onTap: _onSubmitTap,
-                  child: const FormButton(
-                    disabled: false,
-                    buttonText: "Login",
+                  child: FormButton(
+                    disabled: ref.watch(loginProvider).isLoading,
+                    buttonText: ref.watch(loginProvider).isLoading
+                        ? "Logind..."
+                        : "Login",
                   ),
                 )
               ],
