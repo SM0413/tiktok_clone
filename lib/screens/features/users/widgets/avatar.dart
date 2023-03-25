@@ -18,15 +18,15 @@ class Avatar extends ConsumerWidget {
   });
 
   Future<void> _onAvatarTap(WidgetRef ref) async {
-    final xFile = await ImagePicker().pickImage(
+    final xfile = await ImagePicker().pickImage(
       source: ImageSource.gallery,
       imageQuality: 40,
       maxHeight: 150,
       maxWidth: 150,
     );
-    if (xFile != null) {
-      final file = File(xFile.path);
-      await ref.watch(avatarProvider.notifier).uploadAvatar(file);
+    if (xfile != null) {
+      final file = File(xfile.path);
+      await ref.read(avatarProvider.notifier).uploadAvatar(file);
     }
   }
 
@@ -49,12 +49,9 @@ class Avatar extends ConsumerWidget {
               radius: 50,
               foregroundImage: hasAvatar
                   ? NetworkImage(
-                      "https://firebasestorage.googleapis.com/v0/b/tiktok-ew-qwe.appspot.com/o/avatars%2F$uid?alt=media",
-                    )
+                      "https://firebasestorage.googleapis.com/v0/b/tiktok-ew-qwe.appspot.com/o/avatars%2F$uid?alt=media")
                   : null,
-              child: Text(
-                name,
-              ),
+              child: Text(name),
             ),
     );
   }

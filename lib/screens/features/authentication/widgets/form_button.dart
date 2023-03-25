@@ -3,13 +3,12 @@ import 'package:tictok_clone/constants/sizes.dart';
 
 class FormButton extends StatelessWidget {
   final String buttonText;
+  final bool disabled;
   const FormButton({
     super.key,
     required this.disabled,
     required this.buttonText,
   });
-
-  final bool disabled;
 
   @override
   Widget build(BuildContext context) {

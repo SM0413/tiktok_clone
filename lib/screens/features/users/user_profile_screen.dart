@@ -212,7 +212,7 @@ class _UserProfileScreenState extends ConsumerState<UserProfileScreen> {
                                   Container(
                                     padding: const EdgeInsets.symmetric(
                                       vertical: Sizes.size12,
-                                      horizontal: Sizes.size48,
+                                      horizontal: Sizes.size36,
                                     ),
                                     decoration: BoxDecoration(
                                       color: Theme.of(context).primaryColor,
