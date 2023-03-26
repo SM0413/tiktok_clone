@@ -38,6 +38,7 @@ class UploadVideoViewModel extends AsyncNotifier<void> {
                     comments: 0,
                     createdAt: DateTime.now().millisecondsSinceEpoch,
                     creator: userProfile.name,
+                    id: "",
                   ),
                 )
                 .then(

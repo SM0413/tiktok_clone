@@ -14,7 +14,7 @@ import 'package:tictok_clone/screens/features/videos/views/video_recording_scree
 final routerProvider = Provider((ref) {
   // ref.watch(authState);
   return GoRouter(
-    initialLocation: "/profile",
+    initialLocation: "/home",
     redirect: (context, state) {
       final isLogeddIn = ref.read(authRepo).isLoggedIn;
       if (!isLogeddIn) {
